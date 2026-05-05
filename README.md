@@ -33,3 +33,5 @@ By the end of this course, students will be able to:
 - Explain authentication/authorization (JWT, sessions, OAuth)
 - Apply security, logging, error handling, and environment configuration
 
+The final version of the website can be found here: https://cse340-course-repo-fomq.onrender.com
+
