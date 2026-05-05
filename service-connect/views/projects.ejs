@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Explore service project ideas that can bless families, neighborhoods, and communities.</p>
+</section>
+
+<section class="section">
+  <div class="list-card">
+    <h2>Available Projects</h2>
+
+    <ul class="styled-list">
+      <% projects.forEach((project) => { %>
+        <li><%= project %></li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,248 @@
+:root {
+  --primary-color: #1f4f46;
+  --secondary-color: #2f7d68;
+  --accent-color: #f4b942;
+  --background-color: #f6f8f7;
+  --surface-color: #ffffff;
+  --text-color: #1f2933;
+  --muted-color: #5f6c72;
+  --border-color: #d9e2de;
+  --shadow: 0 10px 25px rgba(31, 79, 70, 0.12);
+  --radius: 16px;
+  --max-width: 1100px;
+  --font-main: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-header {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background-color: var(--accent-color);
+  color: #1f2933;
+}
+
+main {
+  min-height: 75vh;
+}
+
+.hero {
+  background: linear-gradient(
+      rgba(31, 79, 70, 0.86),
+      rgba(31, 79, 70, 0.72)
+    ),
+    url("/images/organization.svg");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #1f2933;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.page-heading {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.page-heading h1 {
+  margin: 0 0 0.75rem;
+  color: var(--primary-color);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.page-heading p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted-color);
+  font-size: 1.1rem;
+}
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.section h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card,
+.list-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h2,
+.card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.card p {
+  color: var(--muted-color);
+}
+
+.organization-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.organization-card div {
+  padding: 1.5rem;
+}
+
+.organization-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.category-card {
+  border-top: 6px solid var(--secondary-color);
+}
+
+.styled-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.styled-list li {
+  background-color: #edf5f2;
+  border-left: 5px solid var(--secondary-color);
+  margin-bottom: 0.85rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.site-footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.25rem;
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-nav {
+    justify-content: center;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+}

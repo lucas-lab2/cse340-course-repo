@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Learn about organizations that support service projects and community improvement.</p>
+</section>
+
+<section class="section">
+  <div class="card-grid">
+    <% organizations.forEach((organization) => { %>
+      <article class="card organization-card">
+        <img src="<%= organization.image %>" alt="<%= organization.name %>">
+        <div>
+          <h2><%= organization.name %></h2>
+          <p><%= organization.description %></p>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<%- include("partials/footer") %>
