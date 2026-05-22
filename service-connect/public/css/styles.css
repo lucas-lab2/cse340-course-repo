@@ -246,3 +246,13 @@ main {
     padding: 4rem 1rem;
   }
 }
+
+.project-card {
+  border-top: 6px solid var(--secondary-color);
+}
+
+.card-meta {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--primary-color) !important;
+}

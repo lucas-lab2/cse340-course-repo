@@ -2,17 +2,14 @@
 
 <section class="page-heading">
   <h1><%= title %></h1>
-  <p>Browse service project categories and choose an area where you can make a difference.</p>
+  <p>Browse service project categories retrieved from the database.</p>
 </section>
 
 <section class="section">
   <div class="card-grid">
     <% categories.forEach((category) => { %>
       <article class="card category-card">
-        <h2><%= category %></h2>
-        <p>
-          Find service opportunities related to <%= category %> needs in the community.
-        </p>
+        <h2><%= category.name %></h2>
       </article>
     <% }) %>
   </div>

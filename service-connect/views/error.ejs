@@ -1,0 +1,20 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p><%= message %></p>
+</section>
+
+<section class="section">
+  <div class="list-card">
+    <h2>What to check</h2>
+    <ul class="styled-list">
+      <li>Confirm your .env file has a valid DATABASE_URL.</li>
+      <li>Confirm the database exists and is running.</li>
+      <li>Confirm you ran the SQL from src/setup.sql.</li>
+      <li>Restart the server after changing .env.</li>
+    </ul>
+  </div>
+</section>
+
+<%- include("partials/footer") %>
