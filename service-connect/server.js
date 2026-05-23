@@ -1,10 +1,12 @@
+import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import dotenv from "dotenv";
-import { getAllOrganizations } from "./src/models/organizations.js";
-import { getAllProjects } from "./src/models/projects.js";
-import { getAllCategories } from "./src/models/categories.js";
+import { categoryRouter } from "./src/routes/categoryRoutes.js";
+import { homeRouter } from "./src/routes/homeRoutes.js";
+import { organizationRouter } from "./src/routes/organizationRoutes.js";
+import { projectRouter } from "./src/routes/projectRoutes.js";
+import { showNotFound, showServerError } from "./src/controllers/errorController.js";
 
 dotenv.config();
 
@@ -19,59 +21,13 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const renderDatabaseError = (res, error) => {
-  console.error(error);
+app.use(homeRouter);
+app.use(organizationRouter);
+app.use(projectRouter);
+app.use(categoryRouter);
 
-  res.status(500).render("error", {
-    title: "Database Error",
-    message: "The site could not retrieve information from the database. Check your DATABASE_URL and make sure src/setup.sql has been run.",
-  });
-};
-
-app.get("/", async (req, res) => {
-  res.render("index", {
-    title: "Home",
-  });
-});
-
-app.get("/organizations", async (req, res) => {
-  try {
-    const organizations = await getAllOrganizations();
-
-    res.render("organizations", {
-      title: "Organizations",
-      organizations,
-    });
-  } catch (error) {
-    renderDatabaseError(res, error);
-  }
-});
-
-app.get("/projects", async (req, res) => {
-  try {
-    const projects = await getAllProjects();
-
-    res.render("projects", {
-      title: "Service Projects",
-      projects,
-    });
-  } catch (error) {
-    renderDatabaseError(res, error);
-  }
-});
-
-app.get("/categories", async (req, res) => {
-  try {
-    const categories = await getAllCategories();
-
-    res.render("categories", {
-      title: "Service Project Categories",
-      categories,
-    });
-  } catch (error) {
-    renderDatabaseError(res, error);
-  }
-});
+app.use(showNotFound);
+app.use(showServerError);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -2,7 +2,7 @@
 
 <section class="page-heading">
   <h1><%= title %></h1>
-  <p>Learn about organizations that support service projects and community improvement.</p>
+  <p>Learn about partner organizations that support service projects and community improvement.</p>
 </section>
 
 <section class="section">
@@ -11,8 +11,11 @@
       <article class="card organization-card">
         <img src="<%= organization.image %>" alt="<%= organization.name %>">
         <div>
-          <h2><%= organization.name %></h2>
+          <h2>
+            <a href="/organization/<%= organization.organizationId %>"><%= organization.name %></a>
+          </h2>
           <p><%= organization.description %></p>
+          <a class="text-link" href="/organization/<%= organization.organizationId %>">View organization details</a>
         </div>
       </article>
     <% }) %>

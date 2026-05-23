@@ -9,7 +9,10 @@
   <div class="card-grid">
     <% categories.forEach((category) => { %>
       <article class="card category-card">
-        <h2><%= category.name %></h2>
+        <h2>
+          <a href="/category/<%= category.categoryId %>"><%= category.name %></a>
+        </h2>
+        <p>View service projects related to <%= category.name %>.</p>
       </article>
     <% }) %>
   </div>

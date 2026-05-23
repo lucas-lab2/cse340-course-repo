@@ -15,6 +15,7 @@ CREATE TABLE projects (
   organization_id INTEGER NOT NULL,
   name VARCHAR(100) NOT NULL,
   description TEXT NOT NULL,
+  project_date DATE NOT NULL,
   CONSTRAINT fk_projects_organizations
     FOREIGN KEY (organization_id)
     REFERENCES organizations (organization_id)
@@ -58,27 +59,43 @@ VALUES
     '/images/organization.svg'
   );
 
-INSERT INTO projects (organization_id, name, description)
+INSERT INTO projects (organization_id, name, description, project_date)
 VALUES
   (
     2,
     'Neighborhood cleanup project',
-    'Volunteers work together to remove litter, improve shared spaces, and encourage better care for the local environment.'
+    'Volunteers work together to remove litter, improve shared spaces, and encourage better care for the local environment.',
+    CURRENT_DATE + INTERVAL '7 days'
   ),
   (
     1,
     'School supplies donation drive',
-    'Community members collect notebooks, backpacks, pencils, and other supplies to support students and teachers.'
+    'Community members collect notebooks, backpacks, pencils, and other supplies to support students and teachers.',
+    CURRENT_DATE + INTERVAL '14 days'
   ),
   (
     2,
     'Community garden support',
-    'Volunteers help plant, water, and maintain a garden that provides fresh food and learning opportunities.'
+    'Volunteers help plant, water, and maintain a garden that provides fresh food and learning opportunities.',
+    CURRENT_DATE + INTERVAL '21 days'
   ),
   (
     3,
     'Health and wellness awareness event',
-    'Volunteers help organize an event focused on healthy habits, basic screenings, and wellness education.'
+    'Volunteers help organize an event focused on healthy habits, basic screenings, and wellness education.',
+    CURRENT_DATE + INTERVAL '28 days'
+  ),
+  (
+    1,
+    'Family meal preparation night',
+    'Volunteers prepare simple meals for families who need extra support during difficult weeks.',
+    CURRENT_DATE + INTERVAL '35 days'
+  ),
+  (
+    3,
+    'Senior home visit project',
+    'Volunteers visit older community members, share conversation, and help with small acts of service.',
+    CURRENT_DATE + INTERVAL '42 days'
   );
 
 INSERT INTO categories (name)
@@ -97,4 +114,8 @@ VALUES
   (3, 1),
   (3, 3),
   (4, 3),
-  (4, 4);
+  (4, 4),
+  (5, 3),
+  (5, 4),
+  (6, 3),
+  (6, 4);

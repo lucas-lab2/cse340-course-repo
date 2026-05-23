@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= category.name %></h1>
+  <p>Service projects connected to the <%= category.name %> category.</p>
+</section>
+
+<section class="section">
+  <article class="list-card">
+    <h2>Projects in this Category</h2>
+
+    <% if (projects.length > 0) { %>
+      <ul class="styled-list">
+        <% projects.forEach((project) => { %>
+          <li>
+            <a href="/project/<%= project.projectId %>"><%= project.name %></a>
+            <span class="item-date"><%= project.projectDate %></span>
+            <span class="item-meta">
+              Organization:
+              <a href="/organization/<%= project.organizationId %>"><%= project.organizationName %></a>
+            </span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No service projects are currently assigned to this category.</p>
+    <% } %>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

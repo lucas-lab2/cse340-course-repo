@@ -256,3 +256,72 @@ main {
   font-weight: 700;
   color: var(--primary-color) !important;
 }
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--secondary-color);
+}
+
+.card a,
+.list-card a {
+  font-weight: 700;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--primary-color);
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.detail-card {
+  height: 100%;
+}
+
+.item-date,
+.item-meta {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted-color);
+  font-weight: 500;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #edf5f2;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--primary-color);
+  font-weight: 700;
+  padding: 0.5rem 0.85rem;
+  text-decoration: none;
+}
+
+.tag:hover,
+.tag:focus {
+  background-color: var(--accent-color);
+  color: #1f2933;
+}
+
+@media screen and (max-width: 800px) {
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+}

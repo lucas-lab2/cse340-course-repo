@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= organization.name %></h1>
+  <p><%= organization.description %></p>
+</section>
+
+<section class="section two-column-layout">
+  <article class="card organization-card detail-card">
+    <img src="<%= organization.image %>" alt="<%= organization.name %>">
+    <div>
+      <h2>Organization Details</h2>
+      <p><%= organization.description %></p>
+    </div>
+  </article>
+
+  <article class="list-card">
+    <h2>Service Projects</h2>
+
+    <% if (projects.length > 0) { %>
+      <ul class="styled-list">
+        <% projects.forEach((project) => { %>
+          <li>
+            <a href="/project/<%= project.projectId %>"><%= project.name %></a>
+            <span class="item-date"><%= project.projectDate %></span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No service projects are currently listed for this organization.</p>
+    <% } %>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

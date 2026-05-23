@@ -2,16 +2,22 @@
 
 <section class="page-heading">
   <h1><%= title %></h1>
-  <p>Explore service project ideas that can bless families, neighborhoods, and communities.</p>
+  <p>Explore the next five upcoming service projects and the partner organizations supporting them.</p>
 </section>
 
 <section class="section">
   <div class="card-grid">
     <% projects.forEach((project) => { %>
       <article class="card project-card">
-        <h2><%= project.name %></h2>
+        <h2>
+          <a href="/project/<%= project.projectId %>"><%= project.name %></a>
+        </h2>
         <p><%= project.description %></p>
-        <p class="card-meta">Organization: <%= project.organizationName %></p>
+        <p class="card-meta">Date: <%= project.projectDate %></p>
+        <p class="card-meta">
+          Organization:
+          <a href="/organization/<%= project.organizationId %>"><%= project.organizationName %></a>
+        </p>
       </article>
     <% }) %>
   </div>
