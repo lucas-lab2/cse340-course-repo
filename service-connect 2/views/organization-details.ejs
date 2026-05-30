@@ -3,6 +3,10 @@
 <section class="page-heading">
   <h1><%= organization.name %></h1>
   <p><%= organization.description %></p>
+  <div class="page-actions">
+    <a class="button" href="/edit-organization/<%= organization.organizationId %>">Edit Organization</a>
+    <a class="button button-secondary" href="/organizations">Back to Organizations</a>
+  </div>
 </section>
 
 <section class="section two-column-layout">

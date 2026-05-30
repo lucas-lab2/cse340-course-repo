@@ -325,3 +325,132 @@ a:focus {
     grid-template-columns: 1fr;
   }
 }
+
+.flash-container {
+  max-width: var(--max-width);
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+}
+
+.flash-message,
+.message {
+  border-radius: var(--radius);
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.flash-success {
+  background-color: #e8f5ee;
+  border: 1px solid #8fc8a7;
+  color: #1f4f46;
+}
+
+.flash-error,
+.message-error {
+  background-color: #fff1f0;
+  border: 1px solid #e8a29b;
+  color: #7a1c13;
+}
+
+.message h2 {
+  color: inherit;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.message ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.page-actions,
+.card-actions,
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.card-actions {
+  justify-content: flex-start;
+}
+
+.button-secondary {
+  background-color: #edf5f2;
+  border: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+.form-section {
+  max-width: 780px;
+}
+
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form label,
+.checkbox-fieldset legend {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.form input,
+.form textarea,
+.form select {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font: inherit;
+  padding: 0.85rem;
+  width: 100%;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  outline: 3px solid rgba(244, 185, 66, 0.45);
+  border-color: var(--secondary-color);
+}
+
+.form-help {
+  color: var(--muted-color);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.checkbox-fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+}
+
+.checkbox-label {
+  align-items: center;
+  background-color: #edf5f2;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem;
+}
+
+.checkbox-label input {
+  width: auto;
+}

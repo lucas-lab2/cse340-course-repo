@@ -1,0 +1,78 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Enter service project information and choose the partner organization.</p>
+</section>
+
+<section class="section form-section">
+  <article class="list-card">
+    <% if (errors.length > 0) { %>
+      <div class="message message-error" role="alert">
+        <h2>Please fix the following:</h2>
+        <ul>
+          <% errors.forEach((error) => { %>
+            <li><%= error %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form class="form" action="<%= formAction %>" method="post">
+      <div class="form-group">
+        <label for="organizationId">Partner Organization</label>
+        <select id="organizationId" name="organizationId" required>
+          <option value="">Choose an organization</option>
+          <% organizations.forEach((organization) => { %>
+            <option
+              value="<%= organization.organizationId %>"
+              <%= Number(project.organizationId) === Number(organization.organizationId) ? "selected" : "" %>
+            >
+              <%= organization.name %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Project Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= project.name %>"
+          required
+          maxlength="100"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          required
+          rows="5"
+        ><%= project.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="projectDate">Project Date</label>
+        <input
+          type="date"
+          id="projectDate"
+          name="projectDate"
+          value="<%= project.projectDate %>"
+          required
+        >
+      </div>
+
+      <div class="form-actions">
+        <button class="button" type="submit"><%= submitLabel %></button>
+        <a class="button button-secondary" href="/projects">Cancel</a>
+      </div>
+    </form>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

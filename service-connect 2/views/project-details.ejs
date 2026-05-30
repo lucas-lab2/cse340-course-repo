@@ -3,6 +3,10 @@
 <section class="page-heading">
   <h1><%= project.name %></h1>
   <p><%= project.description %></p>
+  <div class="page-actions">
+    <a class="button" href="/edit-project/<%= project.projectId %>">Edit Project</a>
+    <a class="button button-secondary" href="/project/<%= project.projectId %>/categories">Assign Categories</a>
+  </div>
 </section>
 
 <section class="section">

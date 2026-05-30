@@ -1,0 +1,65 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Enter organization information for the service project site.</p>
+</section>
+
+<section class="section form-section">
+  <article class="list-card">
+    <% if (errors.length > 0) { %>
+      <div class="message message-error" role="alert">
+        <h2>Please fix the following:</h2>
+        <ul>
+          <% errors.forEach((error) => { %>
+            <li><%= error %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form class="form" action="<%= formAction %>" method="post">
+      <div class="form-group">
+        <label for="name">Organization Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= organization.name %>"
+          required
+          maxlength="100"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          required
+          rows="5"
+        ><%= organization.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input
+          type="text"
+          id="imageUrl"
+          name="imageUrl"
+          value="<%= organization.imageUrl %>"
+          required
+          maxlength="255"
+        >
+        <p class="form-help">You can use /images/organization.svg.</p>
+      </div>
+
+      <div class="form-actions">
+        <button class="button" type="submit"><%= submitLabel %></button>
+        <a class="button button-secondary" href="/organizations">Cancel</a>
+      </div>
+    </form>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Enter a category name to organize service projects.</p>
+</section>
+
+<section class="section form-section">
+  <article class="list-card">
+    <% if (errors.length > 0) { %>
+      <div class="message message-error" role="alert">
+        <h2>Please fix the following:</h2>
+        <ul>
+          <% errors.forEach((error) => { %>
+            <li><%= error %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form class="form" action="<%= formAction %>" method="post">
+      <div class="form-group">
+        <label for="name">Category Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= category.name %>"
+          required
+          maxlength="100"
+        >
+        <p class="form-help">Required. Maximum 100 characters.</p>
+      </div>
+
+      <div class="form-actions">
+        <button class="button" type="submit"><%= submitLabel %></button>
+        <a class="button button-secondary" href="/categories">Cancel</a>
+      </div>
+    </form>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

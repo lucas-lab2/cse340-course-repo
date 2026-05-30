@@ -3,6 +3,9 @@
 <section class="page-heading">
   <h1><%= title %></h1>
   <p>Browse service project categories retrieved from the database.</p>
+  <div class="page-actions">
+    <a class="button" href="/new-category">Create New Category</a>
+  </div>
 </section>
 
 <section class="section">
@@ -13,6 +16,10 @@
           <a href="/category/<%= category.categoryId %>"><%= category.name %></a>
         </h2>
         <p>View service projects related to <%= category.name %>.</p>
+        <div class="card-actions">
+          <a class="text-link" href="/category/<%= category.categoryId %>">View details</a>
+          <a class="text-link" href="/edit-category/<%= category.categoryId %>">Edit</a>
+        </div>
       </article>
     <% }) %>
   </div>
