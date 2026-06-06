@@ -4,7 +4,9 @@
   <h1><%= organization.name %></h1>
   <p><%= organization.description %></p>
   <div class="page-actions">
-    <a class="button" href="/edit-organization/<%= organization.organizationId %>">Edit Organization</a>
+    <% if (isAdmin) { %>
+      <a class="button" href="/edit-organization/<%= organization.organizationId %>">Edit Organization</a>
+    <% } %>
     <a class="button button-secondary" href="/organizations">Back to Organizations</a>
   </div>
 </section>

@@ -454,3 +454,35 @@ a:focus {
 .checkbox-label input {
   width: auto;
 }
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.users-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.users-table th,
+.users-table td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #edf5f2;
+  color: var(--primary-color);
+}
+
+.role-badge {
+  background-color: #edf5f2;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--primary-color);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  text-transform: capitalize;
+}

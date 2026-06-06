@@ -1,0 +1,76 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Create an account to access your Service Connect dashboard.</p>
+</section>
+
+<section class="section form-section">
+  <article class="list-card">
+    <% if (errors.length > 0) { %>
+      <div class="message message-error" role="alert">
+        <h2>Please fix the following:</h2>
+        <ul>
+          <% errors.forEach((error) => { %>
+            <li><%= error %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form class="form" action="/register" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value="<%= formData.name %>"
+          required
+          maxlength="100"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email / Username</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="<%= formData.email %>"
+          required
+          maxlength="255"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minlength="6"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+          minlength="6"
+        >
+      </div>
+
+      <div class="form-actions">
+        <button class="button" type="submit">Create Account</button>
+        <a class="button button-secondary" href="/login">I already have an account</a>
+      </div>
+    </form>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

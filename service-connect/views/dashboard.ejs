@@ -1,0 +1,39 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Welcome, <%= currentUser.name %>. You are logged in as <strong><%= currentUser.role %></strong>.</p>
+
+  <% if (isAdmin) { %>
+    <div class="page-actions">
+      <a class="button" href="/users">View Registered Users</a>
+      <a class="button button-secondary" href="/new-organization">Create Organization</a>
+      <a class="button button-secondary" href="/new-project">Create Project</a>
+      <a class="button button-secondary" href="/new-category">Create Category</a>
+    </div>
+  <% } %>
+</section>
+
+<section class="section">
+  <div class="card-grid">
+    <article class="card">
+      <h2>Organizations</h2>
+      <p>Browse partner organizations and view their service projects.</p>
+      <a class="text-link" href="/organizations">View organizations</a>
+    </article>
+
+    <article class="card">
+      <h2>Service Projects</h2>
+      <p>Review upcoming service opportunities and project details.</p>
+      <a class="text-link" href="/projects">View projects</a>
+    </article>
+
+    <article class="card">
+      <h2>Categories</h2>
+      <p>Explore service projects by category.</p>
+      <a class="text-link" href="/categories">View categories</a>
+    </article>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

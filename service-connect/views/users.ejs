@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<section class="page-heading">
+  <h1><%= title %></h1>
+  <p>Admin-only list of all registered Service Connect users.</p>
+  <div class="page-actions">
+    <a class="button button-secondary" href="/dashboard">Back to Dashboard</a>
+  </div>
+</section>
+
+<section class="section">
+  <article class="list-card">
+    <% if (users.length > 0) { %>
+      <div class="table-wrapper">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email / Username</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach((user) => { %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><span class="role-badge"><%= user.role %></span></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <p>No users are currently registered.</p>
+    <% } %>
+  </article>
+</section>
+
+<%- include("partials/footer") %>

@@ -3,9 +3,11 @@
 <section class="page-heading">
   <h1><%= title %></h1>
   <p>Learn about partner organizations that support service projects and community improvement.</p>
-  <div class="page-actions">
-    <a class="button" href="/new-organization">Create New Organization</a>
-  </div>
+  <% if (isAdmin) { %>
+    <div class="page-actions">
+      <a class="button" href="/new-organization">Create New Organization</a>
+    </div>
+  <% } %>
 </section>
 
 <section class="section">
@@ -20,7 +22,9 @@
           <p><%= organization.description %></p>
           <div class="card-actions">
             <a class="text-link" href="/organization/<%= organization.organizationId %>">View details</a>
-            <a class="text-link" href="/edit-organization/<%= organization.organizationId %>">Edit</a>
+            <% if (isAdmin) { %>
+              <a class="text-link" href="/edit-organization/<%= organization.organizationId %>">Edit</a>
+            <% } %>
           </div>
         </div>
       </article>

@@ -7,12 +7,13 @@ import {
   showOrganizations,
   updateExistingOrganization,
 } from "../controllers/organizationsController.js";
+import { requireLogin, requireRole } from "../middleware/authMiddleware.js";
 
 export const organizationRouter = express.Router();
 
 organizationRouter.get("/organizations", showOrganizations);
-organizationRouter.get("/new-organization", showNewOrganizationForm);
-organizationRouter.post("/new-organization", createNewOrganization);
-organizationRouter.get("/edit-organization/:id", showEditOrganizationForm);
-organizationRouter.post("/edit-organization/:id", updateExistingOrganization);
+organizationRouter.get("/new-organization", requireLogin, requireRole("admin"), showNewOrganizationForm);
+organizationRouter.post("/new-organization", requireLogin, requireRole("admin"), createNewOrganization);
+organizationRouter.get("/edit-organization/:id", requireLogin, requireRole("admin"), showEditOrganizationForm);
+organizationRouter.post("/edit-organization/:id", requireLogin, requireRole("admin"), updateExistingOrganization);
 organizationRouter.get("/organization/:id", showOrganizationDetails);

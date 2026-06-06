@@ -4,10 +4,12 @@ import express from "express";
 import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
+import { authRouter } from "./src/routes/authRoutes.js";
 import { categoryRouter } from "./src/routes/categoryRoutes.js";
 import { homeRouter } from "./src/routes/homeRoutes.js";
 import { organizationRouter } from "./src/routes/organizationRoutes.js";
 import { projectRouter } from "./src/routes/projectRoutes.js";
+import { userRouter } from "./src/routes/userRoutes.js";
 import { showNotFound, showServerError } from "./src/controllers/errorController.js";
 
 dotenv.config();
@@ -32,15 +34,19 @@ app.use(
 );
 app.use(flash());
 app.use((req, res, next) => {
+  res.locals.currentUser = req.session.user || null;
+  res.locals.isAdmin = req.session.user?.role === "admin";
   res.locals.successMessages = req.flash("success");
   res.locals.errorMessages = req.flash("error");
   next();
 });
 
 app.use(homeRouter);
+app.use(authRouter);
 app.use(organizationRouter);
 app.use(projectRouter);
 app.use(categoryRouter);
+app.use(userRouter);
 
 app.use(showNotFound);
 app.use(showServerError);

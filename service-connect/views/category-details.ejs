@@ -4,7 +4,9 @@
   <h1><%= category.name %></h1>
   <p>Service projects connected to the <%= category.name %> category.</p>
   <div class="page-actions">
-    <a class="button" href="/edit-category/<%= category.categoryId %>">Edit Category</a>
+    <% if (isAdmin) { %>
+      <a class="button" href="/edit-category/<%= category.categoryId %>">Edit Category</a>
+    <% } %>
     <a class="button button-secondary" href="/categories">Back to Categories</a>
   </div>
 </section>
