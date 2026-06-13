@@ -10,6 +10,7 @@ import { homeRouter } from "./src/routes/homeRoutes.js";
 import { organizationRouter } from "./src/routes/organizationRoutes.js";
 import { projectRouter } from "./src/routes/projectRoutes.js";
 import { userRouter } from "./src/routes/userRoutes.js";
+import { volunteerRouter } from "./src/routes/volunteerRoutes.js";
 import { showNotFound, showServerError } from "./src/controllers/errorController.js";
 
 dotenv.config();
@@ -47,6 +48,7 @@ app.use(organizationRouter);
 app.use(projectRouter);
 app.use(categoryRouter);
 app.use(userRouter);
+app.use(volunteerRouter);
 
 app.use(showNotFound);
 app.use(showServerError);

@@ -486,3 +486,57 @@ a:focus {
   padding: 0.35rem 0.75rem;
   text-transform: capitalize;
 }
+
+button.button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.volunteer-panel {
+  background-color: #edf5f2;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+}
+
+.volunteer-panel h3 {
+  margin-top: 0;
+}
+
+.volunteer-status {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.volunteer-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.volunteer-item {
+  align-items: center;
+  background-color: #edf5f2;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.volunteer-item h3 {
+  margin: 0 0 0.35rem;
+}
+
+.volunteer-item p {
+  margin: 0.35rem 0;
+}
+
+@media screen and (max-width: 800px) {
+  .volunteer-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -6,6 +6,7 @@ import {
   getProjectById,
   updateProject,
 } from "../models/projects.js";
+import { isUserVolunteeringForProject } from "../models/volunteers.js";
 
 const getProjectFormData = (body) => ({
   organizationId: Number(body.organizationId),
@@ -92,11 +93,15 @@ export const showProjectDetails = async (req, res, next) => {
     }
 
     const categories = await getCategoriesByProjectId(projectId);
+    const isVolunteering = req.session.user
+      ? await isUserVolunteeringForProject(req.session.user.userId, projectId)
+      : false;
 
     res.render("project-details", {
       title: project.name,
       project,
       categories,
+      isVolunteering,
     });
   } catch (error) {
     next(error);

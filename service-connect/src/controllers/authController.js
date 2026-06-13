@@ -1,4 +1,5 @@
 import { createUser, getUserByEmail } from "../models/users.js";
+import { getVolunteerProjectsByUserId } from "../models/volunteers.js";
 import { hashPassword, verifyPassword } from "../utils/password.js";
 
 const getRegisterFormData = (body) => ({
@@ -184,8 +185,15 @@ export const logoutUser = (req, res, next) => {
   });
 };
 
-export const showDashboard = (req, res) => {
-  res.render("dashboard", {
-    title: "Dashboard",
-  });
+export const showDashboard = async (req, res, next) => {
+  try {
+    const volunteerProjects = await getVolunteerProjectsByUserId(req.session.user.userId);
+
+    res.render("dashboard", {
+      title: "Dashboard",
+      volunteerProjects,
+    });
+  } catch (error) {
+    next(error);
+  }
 };

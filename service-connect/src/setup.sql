@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS project_volunteers;
 DROP TABLE IF EXISTS project_categories;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS categories;
@@ -48,6 +49,21 @@ CREATE TABLE project_categories (
   CONSTRAINT fk_project_categories_categories
     FOREIGN KEY (category_id)
     REFERENCES categories (category_id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE project_volunteers (
+  user_id INTEGER NOT NULL,
+  project_id INTEGER NOT NULL,
+  signed_up_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (user_id, project_id),
+  CONSTRAINT fk_project_volunteers_users
+    FOREIGN KEY (user_id)
+    REFERENCES users (user_id)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_project_volunteers_projects
+    FOREIGN KEY (project_id)
+    REFERENCES projects (project_id)
     ON DELETE CASCADE
 );
 

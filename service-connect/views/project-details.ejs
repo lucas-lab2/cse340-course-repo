@@ -31,6 +31,23 @@
     <% } else { %>
       <p>No categories are currently assigned to this project.</p>
     <% } %>
+
+    <% if (currentUser) { %>
+      <div class="volunteer-panel">
+        <h3>Volunteer Signup</h3>
+        <% if (isVolunteering) { %>
+          <p class="volunteer-status">You are volunteering for this project.</p>
+          <form action="/project/<%= project.projectId %>/volunteer/remove" method="post">
+            <button class="button button-secondary" type="submit">Remove Me as Volunteer</button>
+          </form>
+        <% } else { %>
+          <p>Interested in helping with this project?</p>
+          <form action="/project/<%= project.projectId %>/volunteer" method="post">
+            <button class="button" type="submit">Volunteer for This Project</button>
+          </form>
+        <% } %>
+      </div>
+    <% } %>
   </article>
 </section>
 
